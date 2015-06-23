@@ -1,0 +1,22 @@
+<div class="container theme-showcase" role="main">
+  <div class="jumbotron">
+    <h1>ハイカットおじさん<br/>参加可否シークレット投票</h1>
+    <p>
+      とてつもない構ってちゃんであり、構ってちゃん最終奥義さえも実行したのにも関わらず、本人はそもそも構ってちゃんとして扱われる事が嫌であると表明しており、そのくせにDMにて構ってちゃん攻撃をしてくるハイカットおじさんこと流浪にーとの、『第二回引退界隈焼肉会』参加を認めるかどうかの投票を実施します。
+    </p>
+    <p>
+      <strong>{{.user.Name}}</strong>として、以下のどれかに投票してください。この投票は一度しかできません。
+    </p>
+  </div>
+  <div class="well center-block">
+    <button type="button" onclick="shootora(1)" class="btn btn-lg btn-block btn-success">参加してもよいと思う</button>
+    <button type="button" onclick="shootora(2)" class="btn btn-lg btn-block btn-danger">参加は許されない</button>
+    <button type="button" onclick="shootora(3)" class="btn btn-lg btn-block btn-warning">参加しても良いが、3倍多く参加費を払うべきだ</button>
+  </div>
+</div>
+
+<script type="text/javascript">
+function shootora(num) {
+  window.location = "/vote?id={{.user.Id}}&num=" + num;
+}
+</script>

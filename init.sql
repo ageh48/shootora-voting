@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS users (
+  id TEXT UNIQUE,
+  name TEXT UNIQUE,
+  num INT
+);

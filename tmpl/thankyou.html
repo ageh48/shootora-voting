@@ -1,0 +1,25 @@
+<div class="container theme-showcase" role="main">
+  <div class="jumbotron">
+    <h1>ハイカットおじさん<br/>参加可否シークレット投票</h1>
+    <p>
+      とてつもない構ってちゃんであり、構ってちゃん最終奥義さえも実行したのにも関わらず、本人はそもそも構ってちゃんとして扱われる事が嫌であると表明しており、そのくせにDMにて構ってちゃん攻撃をしてくるハイカットおじさんこと流浪にーとの、『第二回引退界隈焼肉会』参加を認めるかどうかの投票を実施します。
+    </p>
+  </div>
+  <div class="well center-block">
+    <h3>
+      <strong>{{.user.Name}}</strong>として、あなたは以下のように投票しました：
+    </h3>
+    <h1 id="vote-1" class="alert alert-success" style="display: none;">参加してもよいと思う</h1>
+    <h1 id="vote-2" class="alert alert-danger" style="display: none;">参加は許されない</h1>
+    <h1 id="vote-3" class="alert alert-warning" style="display: none;">参加しても良いが、3倍多く参加費を払うべきだ</h1>
+    <h3>
+      ご協力ありがとうございました。
+    </h3>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+  $("#vote-{{.user.Num}}").show();
+});
+</script>

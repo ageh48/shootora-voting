@@ -1,0 +1,4 @@
+*.db
+/src/github.com/**
+/pkg/
+/shootora-voting
