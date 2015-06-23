@@ -38,3 +38,26 @@ func GetUser(id string) (*User, error) {
 	}
 	return &user, nil
 }
+
+func GetSummary() ([]float64, error) {
+	res := []float64{0, 0, 0, 0}
+	rows, err := db.Query("SELECT num FROM users")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var num int
+	count := 0.0
+	for rows.Next() {
+		rows.Scan(&num)
+		res[num] += 1.0
+		count += 1.0
+	}
+
+	for i, v := range res {
+		res[i] = v / count * 100.0
+	}
+
+	return res, nil
+}

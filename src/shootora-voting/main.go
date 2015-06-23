@@ -74,9 +74,9 @@ func voteHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	render(w, "tmpl/index.html", map[string]string{
-		"title":   "hoge",
-		"content": "<b>bar</b>",
+	data, _ := GetSummary()
+	render(w, "tmpl/index.html", map[string]interface{}{
+		"data": data,
 	})
 }
 
@@ -87,6 +87,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	http.HandleFunc("/vote", voteHandler)
 	http.HandleFunc("/", indexHandler)

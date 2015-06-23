@@ -1,11 +1,16 @@
-<div class="container theme-showcase" role="main">
-  <div class="jumbotron">
+<div class="container">
+  <div class="page-header">
     <h1>ハイカットおじさん<br/>参加可否シークレット投票</h1>
-    <p>
-      とてつもない構ってちゃんであり、構ってちゃん最終奥義さえも実行したのにも関わらず、本人はそもそも構ってちゃんとして扱われる事が嫌であると表明しており、そのくせにDMにて構ってちゃん攻撃をしてくるハイカットおじさんこと流浪にーとの、『第二回引退界隈焼肉会』参加を認めるかどうかの投票を実施します。
-    </p>
-    <p>
-      結果が集計され次第、ここに表示されます。
-    </p>
+  </div>
+  <h3>投票結果（単位：％）</h3>
+  <div>
+    <div id="legend"></div>
+    <canvas id="chart" width="480" height="480"></canvas>
   </div>
 </div>
+<script src="/static/showchart.js"></script>
+<script>
+$(function () {
+  showChart({{.data}});
+});
+</script>
